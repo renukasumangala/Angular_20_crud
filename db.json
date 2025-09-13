@@ -1,11 +1,32 @@
 {
-    "associate":[
-        {
-            "id":1,
-            "name": "rahul",
-            "address":"",
-            "creditlimit":1000,
-            "status":true
-        }
-    ]
+  "associate": [
+    {
+      "id": 1,
+      "name": "rahul",
+      "address": "1st street",
+      "creditlimit": 1000,
+      "status": true
+    },
+    {
+      "id": "2",
+      "name": "Ravikumar",
+      "address": "north avenue",
+      "creditlimit": "100",
+      "status": true
+    },
+    {
+      "id": "3",
+      "name": "Ramya",
+      "address": "south avenue",
+      "creditlimit": "3000",
+      "status": true
+    },
+    {
+      "id": "4",
+      "name": "Radha",
+      "address": "JP Nagar",
+      "creditlimit": "500",
+      "status": true
+    }
+  ]
 }

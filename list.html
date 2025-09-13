@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-header>
-        <button mat-raised-button color="primary">Add</button>
+        <button mat-raised-button color="primary" (click)="add()">Add</button>
     </mat-card-header>
     <mat-card-content>
         <table mat-table [dataSource]="datasource">
@@ -33,8 +33,8 @@
             <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef>Action</th>
                 <td mat-cell *matCellDef="let element">
-                    <button mat-raised-button color="primary">Edit</button>
-                    <button mat-raised-button color="accent">Remove</button>
+                    <button mat-raised-button color="primary" (click)="Edit(element.id)">Edit</button>
+                    <button mat-raised-button color="accent" (click)="Delete(element.id)">Remove</button>
                 </td>
             </ng-container>
 

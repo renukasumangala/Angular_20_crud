@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { associateModel } from '../../model/associate';
+import { environment } from '../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Associate {
-  apiBaseUrl='http://localhost:3000';
+  apiBaseUrl = environment.apiBaseUrl;
 
 
   constructor(private http: HttpClient){
