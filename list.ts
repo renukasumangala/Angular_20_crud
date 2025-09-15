@@ -7,6 +7,7 @@ import { Associate } from '../../_shared/associate';
 import { associateModel } from '../../../model/associate';
 import { Subscription } from 'rxjs';
 import { Add } from '../add/add';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-list',
@@ -20,8 +21,10 @@ export class List implements OnInit,OnDestroy{
   subs=new Subscription();
   displayHeaders=['id','name','address','cl','status','action']
   datasource: MatTableDataSource<associateModel>= new MatTableDataSource<associateModel>();
-  @ViewChild(MatTable) table! : MatTable<any>
- constructor(private service: Associate,private dialog: MatDialog) {
+  @ViewChild(MatTable) table! : MatTable<any>;
+
+ constructor(private service: Associate,private dialog: MatDialog,private breakpointObserver: BreakpointObserver)
+  {
 
  }
 
@@ -34,6 +37,7 @@ export class List implements OnInit,OnDestroy{
     });
     this.subs.add(_sub);
   }
+
   UpdateList() {
     let _sub= this.service.Getall().subscribe(item => {
      this._list = item;
@@ -45,6 +49,14 @@ export class List implements OnInit,OnDestroy{
 
   ngOnInit(): void {
     this.GetallList();
+
+    this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
+      if (result.matches) {
+        this.displayHeaders = ['id', 'name', 'status', 'action'];
+      } else {
+        this.displayHeaders = ['id', 'name', 'address', 'cl', 'status', 'action'];
+      }
+    });
     
       
   }
@@ -67,7 +79,7 @@ export class List implements OnInit,OnDestroy{
       }
     }).afterClosed().subscribe(s=>{
       this.UpdateList();
-    })
+    });
   }
 
   Edit(id:any){

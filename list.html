@@ -2,8 +2,10 @@
     <mat-card-header>
         <button mat-raised-button color="primary" (click)="add()">Add</button>
     </mat-card-header>
+    
     <mat-card-content>
-        <table mat-table [dataSource]="datasource">
+        <div class="table-container">
+        <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
 
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef>Id</th>
@@ -32,7 +34,7 @@
 
             <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef>Action</th>
-                <td mat-cell *matCellDef="let element">
+                <td mat-cell *matCellDef="let element" class="action-buttons">
                     <button mat-raised-button color="primary" (click)="Edit(element.id)">Edit</button>
                     <button mat-raised-button color="accent" (click)="Delete(element.id)">Remove</button>
                 </td>
@@ -41,5 +43,6 @@
             <tr style="background-color: blue;color: white;" mat-header-row *matHeaderRowDef="displayHeaders"></tr>
             <tr mat-row *matRowDef="let row; columns:displayHeaders"></tr>
         </table>
+    </div>
     </mat-card-content>
 </mat-card>

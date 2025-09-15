@@ -4,3 +4,29 @@
 .mdc-button{
     margin: 2px;
 }
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+@media (max-width: 600px) {
+  th, td {
+    font-size: 12px; 
+    padding: 4px;
+    white-space: nowrap; 
+  }
+
+  button {
+    flex: 1 1 auto; 
+  }
+
+  .mat-mdc-card {
+    margin: 5px; 
+  }
+}
