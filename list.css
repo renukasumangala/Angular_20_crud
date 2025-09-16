@@ -16,6 +16,9 @@
 }
 
 @media (max-width: 600px) {
+    table{
+        min-width: 500px;
+    }
   th, td {
     font-size: 12px; 
     padding: 4px;
